@@ -35,6 +35,28 @@ func newGallows() *gallows {
 	return gallow
 }
 
+func renewGallows(gallow *gallows) {
+	gallow.canvas = [][]string{}
+
+	for i := 0; i < height; i++ {
+		line := []string{}
+		for j := 0; j < width; j++ {
+			line = append(line, " ")
+		}
+		gallow.canvas = append(gallow.canvas, line)
+	}
+
+	for i := 0; i < width; i++ {
+		gallow.canvas[i][0] = "X"
+	}
+
+	for i := 0; i < height/2+1; i++ {
+		gallow.canvas[0][i] = "X"
+	}
+
+	gallow.canvas[1][height/2] = "X"
+}
+
 func (g *gallows) render() {
 	for _, line := range g.canvas {
 		fmt.Println(strings.Join(line, ""))

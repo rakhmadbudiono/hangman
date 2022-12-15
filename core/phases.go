@@ -17,3 +17,20 @@ var phases = []phase{
 	{desc: "Now we draw one foot", run: drawLeftFoot},
 	{desc: "Here's the other foot -- you're hung!!", run: drawRightFoot},
 }
+
+var timesup = phase{
+	desc: "Time's up -- you're hung!!", run: func(g *gallows) {
+		renewGallows(g)
+
+		drawHead(g)
+		drawBody(g)
+		drawRightArm(g)
+		drawLeftArm(g)
+		drawRightHand(g)
+		drawLeftHand(g)
+		drawRightLeg(g)
+		drawLeftLeg(g)
+		drawRightFoot(g)
+		drawLeftFoot(g)
+	},
+}
